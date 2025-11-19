@@ -1,0 +1,285 @@
+/* ##################################################################### */
+/* ############################# VARIABLES ############################# */
+/* ##################################################################### */
+
+:root {
+    --gt-color-primary:#F8EDD9 ;
+    --gt-color-light: #327329;
+    --gt-color-dark:#133020 ;
+    --gt-color-bright:#F0BE49;
+    --gt-color-warm:#DD5C36;
+}
+
+* {
+    box-sizing: border-box;
+    margin:0;
+    padding: 0;
+}
+
+html,body { 
+  scroll-behavior: smooth; 
+  height: 100%;
+  background-color: var(--gt-color-primary);
+  font-family: Arial, sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+a {
+  color:#fff;
+  text-decoration: none;
+}
+
+a:hover,
+a:focus,
+a:active {
+  text-decoration: underline;
+}
+
+main, section {
+    background-color: var(--gt-color-primary);
+}
+
+
+/* ##################################################################### */
+/* ################################ FOOTER ############################# */
+/* ##################################################################### */
+
+
+footer {
+  text-align: center;
+  padding: 2em;
+  background-color:#000;
+  color: #fff;
+  margin-bottom: auto;
+}
+
+
+
+/* ##################################################################### */
+/* ############################## Covoiturage ########################## */
+/* ##################################################################### */
+
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+
+input, button {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid var(--gt-color-warm);
+}
+
+
+button {
+  background-color:var(--gt-color-warm);
+  color: white;
+  cursor: pointer;
+}
+
+.card {
+
+  background: var(--gt-color-warm);
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  padding: 15px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+img {
+ height: 65px; ;
+ width: 65px;
+}
+
+.no-result {
+  border: 1px solid #ccc;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.btn-green {
+  background-color: #28a745;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  margin: 5px;
+}
+
+.btn-outline {
+  background: white;
+  border: 1px solid #000;
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+
+.btn-detail {
+  background-color: #000;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  margin-top: 10px;
+}
+
+
+
+/* ##################################################################### */
+/* ######################## HEADER DE L'ACCUEIL ######################## */
+/* ##################################################################### */
+
+.main__header {
+  position: relative;
+  width: 100%;
+  height: 300px; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url("../../Public/img/iceland.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.main__header h1,
+.main__header p {
+  color: white;
+  text-align: center;
+  z-index: 2;
+}
+
+.main__header::before {
+
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+  z-index: 1;
+}
+
+.booking-form {
+  display: flex;
+  flex-wrap: nowrap; 
+  align-items: center; 
+  gap: 15px; 
+  width: 100%;
+  margin: auto;
+  
+
+}
+
+.booking-form .form-group,
+.booking-form .form-date-from,
+.booking-form .form-quantity,
+.booking-form .form-submit {
+display: flex;
+flex-direction: column;
+}
+
+.booking-form input[type="text"],
+.booking-form input[type="date"],
+.booking-form input[type="number"],
+.booking-form input[type="submit"] {
+  padding: 10px;
+  font-size: 14px;
+  width: 100%;
+  max-width: 200px;
+  border-radius: 6px;
+}
+
+.card {
+  background: var(--gt-color-warm);
+  color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+img {
+  height: 100px;;
+  width: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+
+footer {
+  margin-top: auto;
+  text-align: center;
+  padding: 1.5em;
+  background-color: #000;
+  color: #fff;
+}
+
+/* ############################################################## */
+/* ####################### MEDIA QUERIES ######################## */
+/* ############################################################## */
+
+@media (max-width: 768px) {
+
+    /* Header */
+    .main__header {
+        height: 350px;
+        padding: 20px;
+    }
+
+    /* Formulaire du header */
+    .booking-form {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .booking-form input {
+        max-width: 100%;
+    }
+
+    /* Formulaire recherche */
+    form {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    /* Cartes */
+    .card {
+        font-size: 14px;
+    }
+
+    .info {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    img {
+        height: 80px;
+        width: 80px;
+    }
+}
+
+
+
+

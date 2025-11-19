@@ -1,0 +1,20 @@
+<?php include __DIR__ . '/header.phtml'; ?>
+
+<main class="container">
+    <header class="card">
+        <h2 id="welcomeMessage">Profil</h2>
+        <a href="covoiturage.php" class="btn">Rechercher un trajet</a>
+    </header>
+    <section class="card">
+        <h2>Informations</h2>
+            <p>Nom: <span id="nom"></span></p>
+            <p>Prénom: <span id="prenom"></span></p>
+            <p>Pseudo: <span id="pseudo"></span></p>
+            <p>Email: <span id="email"></span></p>
+            <p>Role: <span id="chauffeur"></span></p>
+        <button id="logoutBtn" class="btn-ghost">Se déconnecter</button>
+    </section>
+
+</main>
+
+<?php include __DIR__ . '/footer.phtml'; ?>

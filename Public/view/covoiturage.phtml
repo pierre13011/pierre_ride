@@ -1,0 +1,18 @@
+<?php include __DIR__ . '/header.phtml'; ?>
+
+  <main>
+    <h2>Recherche de covoiturage</h2>
+
+      <form id="searchForm">
+        <input type="text" id="depart" placeholder="Ville de départ" required>
+        <input type="text" id="arrivee" placeholder="Ville d’arrivée" required>
+        <input type="date" id="date" required>
+        <input type="time" id="currentTime" required>
+
+        <button type="submit">Rechercher</button>
+      </form>
+
+    <div id="results"></div>
+  </main>
+
+<?php include __DIR__ . '/footer.phtml'; ?>

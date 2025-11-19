@@ -1,0 +1,76 @@
+<?php include __DIR__ . '/header.phtml'; ?>
+    <main>
+
+        <header class="main__header">
+            <h1 class="header__title">EcoRide</h1>
+                <p class="header__slogan">Roulez vert, partagez mieux.</p>
+        </header>
+
+        <div class="container">
+            <form id="booking-form" class="booking-form" method="POST">
+                <div class=" container form-group">
+                    <div class="form-destination"></div>
+                    <label for="destination">Destination</label>
+                    <input type="text" id="destination" name="destination" class="rounded-pill" placeholder="Ex Marseille">
+                </div>
+
+                <div class=" container form-group">
+                    <div class="form-destination-to"></div>
+                    <label for="destination-to">Arriver</label>
+                    <input type="text" id="destination-to" name="destination-to" class="rounded-pill" placeholder="Ex Paris">
+                </div>
+
+                <div class="container form-date-from form-icon">
+                    <label for="date_from">Date de départ</label>
+                    <input type="date" id="date_from" name="date_from" class="date_from hasDatePicker rounded-pill">
+                </div>
+
+                <div class="container form-time">
+                    <label for="time_from">Heure de départ</label>
+                    <input type="time" id="time_from" name="time_from" class="time_from rounded-pill">
+                </div>
+
+                <div class=" container form-quantity">
+                    <label for="quantity">Voyageur</label>
+                    <input type="number" name="quantity" id="quantity" value="0" min="0"  class="input-text qty text rounded-pill">
+                </div>
+
+                <div class="form-submit">               
+                    <button type="submit" class="btn btn-danger">
+                        <a href="covoiturage.php">Réserver</a>  
+                    </button>    
+                </div>
+
+
+            </form>
+        </div>
+
+        <div class="d-flex justify-content-center gap-3 flex-nowrap my-4">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                <h5 class="card-title">Cherchez un trajet</h5><br>
+                <p class="card-text">Entrez votre destination et trouvez des conducteurs qui vont dans la même direction.</p>
+                <a href="covoiturage.php" class="btn btn-dark">Reserver</a>      
+                </div>
+            </div>
+
+            <div class="card text-center" style="width: 18rem;">
+                <div class="card-body">
+                <h5 class="card-title">Réservez votre place</h5><br>
+                <p class="card-text">Payez en ligne de manière sécurisée et confirmez votre place en quelques clics.</p>
+                <a href="covoiturage.php" class="btn btn-dark">Reserver</a>      
+                </div>
+            </div>
+
+            <div class="card text-center" style="width: 18rem;">
+                <div class="card-body">
+                <h5 class="card-title">Voyagez éco-responsable</h5><br>
+                <p class="card-text">Rencontrez de nouvelles personnes, économisez de l'argent et réduisez votre empreinte carbone.</p>
+                <a href="covoiturage.php" class="btn btn-dark">Reserver</a>
+                </div>
+            </div>
+        </div>
+
+    </main>
+    
+<?php include __DIR__ . '/footer.phtml'; ?>
