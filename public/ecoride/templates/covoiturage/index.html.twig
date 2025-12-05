@@ -1,0 +1,95 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Recherche de covoiturage{% endblock %}
+
+{% block content %}
+
+<section class="container py-4">
+
+    <h2 class="mb-3">Recherche de covoiturage</h2>
+
+    <form method="GET" class="row g-3 mb-4">
+
+        <div class="col-md-4">
+            <input type="text" class="form-control"
+                name="depart"
+                value="{{ app.request.get('depart') }}"
+                placeholder="Ville de départ">
+        </div>
+
+        <div class="col-md-4">
+            <input type="text" class="form-control"
+                name="arrivee"
+                value="{{ app.request.get('arrivee') }}"
+                placeholder="Ville d’arrivée">
+        </div>
+
+        <div class="col-md-2">
+            <input type="date" class="form-control"
+                name="date"
+                value="{{ app.request.get('date') }}">
+        </div>
+
+        <div class="col-md-2">
+            <input type="time" class="form-control"
+                name="currentTime"
+                value="{{ app.request.get('currentTime') }}">
+        </div>
+
+        <div class="col-12 text-end mt-2">
+            <button type="submit" class="btn btn-dark">
+                Rechercher
+            </button>
+        </div>
+
+    </form>
+
+   {% if trajets is empty %}
+    <p class="text-muted my-5">Aucun trajet ne correspond à votre recherche</p>
+{% else %}
+
+    <div class="row gy-3">
+        {% for trajet in trajets %}
+            <div class="col-md-4">
+                <div class="card p-3">
+
+                    <h5><strong>{{ trajet.depart }} → {{ trajet.arrivee }}</strong></h5>
+
+                    <p>
+                        📅 {{ trajet.date|date('d/m/Y') }}
+                        à {{ trajet.heure|date('H:i') }}
+                    </p>
+
+                    <p>
+                        👤 Chauffeur :
+                        {{ trajet.chauffeur.prenom }} {{ trajet.chauffeur.nom }}
+                        ({{ trajet.chauffeur.pseudo }})
+                    </p>
+
+                    <p>
+                        💺 {{ trajet.places }} places
+                    </p>
+
+                    <p>
+                        💶 {{ trajet.prix }} €
+                    </p>
+
+                    <a class="btn btn-dark btn-sm mt-2" href="#">
+                        Réserver
+                    </a>
+
+                    <a class="btn btn-dark btn-sm mt-2"
+                        href="{{ path('app_trajet_details', { id: trajet.id }) }}">
+                        Voir détails
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endif %}
+    
+
+</section>
+
+{% endblock %}

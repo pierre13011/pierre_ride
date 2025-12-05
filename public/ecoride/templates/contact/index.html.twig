@@ -1,0 +1,87 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block content %}
+
+    <section class="py-3 py-md-5 py-xl-8">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-10 col-lg-8">
+                    <h2 class="fs-5 mb-2 text-secondary text-uppercase">Contact</h2>
+                    <h3 class="display-5 mb-4 mb-md-5 mb-xl-8">
+                        Nous voulons améliorer votre expérience. N'hésitez pas à nous contacter.
+                    </h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row gy-4 gy-md-5 gy-lg-0 align-items-md-center">
+                <div class="col-12 col-lg-6">
+                    <div class="border border-dark">
+
+                        <form class="form">
+                            <div class="row gy-4 gy-xl-5 p-4 p-xl-5">
+
+                                <div class="col-12">
+                                    <label for="fullname" class="form-label">
+                                        Nom Entier <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="text" class="form-control" id="fullname" name="fullname" required>
+                                </div>
+
+                                <div class="col-12 col-md-6">
+                                    <label for="email" class="form-label">
+                                        Email <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="input-group">
+                                        <span class="input-group-text">
+                                         
+                                        </span>
+                                        <input type="email" class="form-control" id="email" name="email" required>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-md-6">
+                                    <label for="phone" class="form-label">Phone Number</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text">
+                           
+                                        </span>
+                                        <input type="tel" class="form-control" id="phone" name="phone">
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <label for="subject" class="form-label">
+                                        Subject <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="text" class="form-control" id="subject" name="subject" required>
+                                </div>
+
+                                <div class="col-12">
+                                    <label for="message" class="form-label">
+                                        Message <span class="text-danger">*</span>
+                                    </label>
+                                    <textarea class="form-control" id="message" name="message" rows="3" required></textarea>
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="d-grid">
+                                        <button class="btn btn-dark btn-lg" type="submit">Send Message</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+
+{% endblock %}

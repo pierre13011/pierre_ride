@@ -1,0 +1,75 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Mon Profil{% endblock %}
+
+{% block content %}
+<div class="container my-5" style="max-width:600px">
+    <h2 class="mb-4">Mon profil</h2>
+
+    <p><strong>Nom :</strong> {{ app.user.nom }}</p>
+    <p><strong>Prénom :</strong> {{ app.user.prenom }}</p>
+    <p><strong>Pseudo :</strong> {{ app.user.pseudo }}</p>
+    <p><strong>Email :</strong> {{ app.user.email }}</p>
+
+    <p><strong>Rôle(s) :</strong>
+        {% for role in app.user.roles %}
+            {% if role == 'ROLE_USER' %}
+                <span class="badge bg-secondary">Utilisateur</span>
+            {% elseif role == 'ROLE_CHAUFFEUR' %}
+                <span class="badge bg-success">Chauffeur</span>
+            {% endif %}
+        {% endfor %}
+    </p>
+
+    <hr class="my-4">
+
+    {# ▼ Si l'utilisateur n'est PAS chauffeur ▼ #}
+    {% if not ('ROLE_CHAUFFEUR' in app.user.roles) %}
+        <a href="{{ path('app_devenir_chauffeur') }}" class="btn btn-success mt-3">
+            🚗 Devenir Chauffeur
+        </a>
+    {% else %}
+        {# ▼ Si l'utilisateur EST chauffeur ▼ #}
+        <div class="alert alert-success">
+            ✔ Vous êtes chauffeur
+        </div>
+
+        <a href="{{ path('app_chauffeur_espace') }}" class="btn btn-primary">
+            Accéder à l’espace Chauffeur
+        </a>
+
+        <a href="{{ path('app_chauffeur_trajet_new') }}" class="btn btn-success mt-3">
+            ➕ Proposer un trajet
+        </a>
+    {% endif %}
+
+    {# ▼ Section visible uniquement pour les chauffeurs ▼ #}
+    {% if 'ROLE_CHAUFFEUR' in app.user.roles %}
+        <h3 class="mt-5">Mes trajets proposés</h3>
+        <hr>
+
+        {% if app.user.trajets is empty %}
+            <p class="text-muted">Aucun trajet proposé pour l'instant.</p>
+        {% else %}
+            <div class="list-group">
+                {% for trajet in app.user.trajets %}
+                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>
+                            <strong>{{ trajet.depart }} → {{ trajet.arrivee }}</strong><br>
+                            Date : {{ trajet.date|date('d/m/Y') }} — 
+                            Heure : {{ trajet.heure|date('H:i') }}<br>
+                            Prix : {{ trajet.prix }} € — 
+                            Places restantes : {{ trajet.getPlacesRestantes() }}
+                        </div>
+
+                        <a href="{{ path('chauffeur_trajet_reservations', { id: trajet.id }) }}"
+                           class="btn btn-dark btn-sm">
+                            Voir réservations
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endif %}
+</div>
+{% endblock %}

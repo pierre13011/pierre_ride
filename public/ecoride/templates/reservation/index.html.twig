@@ -1,0 +1,29 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Réservation trajet{% endblock %}
+
+{% block content %}
+
+<div class="container my-5" style="max-width:600px">
+
+    <h2 class="mb-4">
+        Réserver :
+        <strong>{{ trajet.depart }} → {{ trajet.arrivee }}</strong>
+    </h2>
+
+    <p><strong>Date :</strong> {{ trajet.date|date('d/m/Y') }}</p>
+    <p><strong>Heure :</strong> {{ trajet.heure|date('H:i') }}</p>
+    <p><strong>Prix :</strong> {{ trajet.prix }} €</p>
+    <p><strong>Places disponibles :</strong> {{ trajet.places }}</p>
+
+    {{ form_start(form) }}
+    {{ form_row(form.places) }}
+
+    <a href="{{ path('app_reservation_new', { trajet_id: trajet.id }) }}" class="btn btn-success">
+            Réserver ce trajet
+        </a>
+    {{ form_end(form) }}
+
+</div>
+
+{% endblock %}

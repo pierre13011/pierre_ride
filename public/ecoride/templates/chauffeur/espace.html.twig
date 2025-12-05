@@ -1,0 +1,26 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Mes trajets{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+
+    <a href="{{ path('app_chauffeur_trajet_new') }}" class="btn btn-success mb-4">
+        + Proposer un trajet
+    </a>
+
+    {% if trajets is empty %}
+        <p class="text-muted">Aucun trajet proposé.</p>
+    {% else %}
+        <ul class="list-group">
+            {% for trajet in trajets %}
+            <li class="list-group-item">
+                <strong>{{ trajet.depart }} → {{ trajet.arrivee }}</strong><br>
+                {{ trajet.date|date('d/m/Y') }} à {{ trajet.heure|date('H:i') }}
+            </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+</div>
+{% endblock %}

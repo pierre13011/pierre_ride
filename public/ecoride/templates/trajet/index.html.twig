@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des trajets{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1 class="my-4">Tous les trajets</h1>
+
+    {% for trajet in trajets %}
+        <div class="card mb-3 p-3">
+            <h4>{{ trajet.depart }} → {{ trajet.arrivee }}</h4>
+            <p>
+                <strong>Date :</strong> {{ trajet.date|date('d/m/Y') }}<br>
+                <strong>Heure :</strong> {{ trajet.heure|date('H:i') }}<br>
+                <strong>Prix :</strong> {{ trajet.prix }} €<br>
+                <strong>Places :</strong> {{ trajet.places }}
+            </p>
+
+            <a href="{{ path('app_trajet_show', { id: trajet.id }) }}" class="btn btn-primary">
+                Voir le trajet
+            </a>
+        </div>
+    {% else %}
+        <p>Aucun trajet disponible pour le moment.</p>
+    {% endfor %}
+
+    {% if is_granted('ROLE_CHAUFFEUR') %}
+    <a href="{{ path('app_trajet_new') }}" class="btn btn-dark mb-4">
+        Proposer un trajet
+    </a>
+    {% endif %}
+</div>
+{% endblock %}

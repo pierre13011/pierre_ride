@@ -1,0 +1,59 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}
+    Trajet {{ trajet.depart }} → {{ trajet.arrivee }}
+{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+
+    <a href="{{ path('app_covoiturage') }}" class="btn btn-outline-dark mb-3">
+        ← Retour
+    </a>
+
+    <div class="card p-4">
+
+        <h2 class="mb-3">
+            {{ trajet.depart }} → {{ trajet.arrivee }}
+        </h2>
+
+        <p>
+            📅 <strong>{{ trajet.date|date('d/m/Y') }}</strong>
+            à <strong>{{ trajet.heure|date('H:i') }}</strong>
+        </p>
+
+        <p>
+            👤 Chauffeur :
+            <strong>{{ trajet.chauffeur.prenom }} {{ trajet.chauffeur.nom }}</strong>
+            ({{ trajet.chauffeur.pseudo }})
+        </p>
+
+        <p>
+            💺 Places restantes :
+            <strong>{{ trajet.getPlacesRestantes() }}</strong>
+        </p>
+
+        <p>
+            💶 Tarif :
+            <strong>{{ trajet.prix }} €</strong>
+        </p>
+
+        <hr class="my-3">
+
+        <form method="GET" action="{{ path('app_reserver_trajet', { id: trajet.id }) }}">
+            <div class="mb-3">
+                <label for="places">Nombre de places :</label>
+                <input type="number" name="places" id="places"
+                    min="1" max="{{ trajet.places }}" value="1"
+                    class="form-control">
+            </div>
+
+            <button class="btn btn-dark w-100">
+                Réserver
+            </button>
+        </form>
+
+    </div>
+
+</div>
+{% endblock %}

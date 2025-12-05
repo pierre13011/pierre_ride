@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouveau Trajet{% endblock %}
+
+{% block body %}
+    <h1>Créer un nouveau Trajet</h1>
+
+    {{ include('trajet/_form.html.twig') }}
+
+    <a href="{{ path('app_trajet_index') }}">retour à la liste</a>
+{% endblock %}

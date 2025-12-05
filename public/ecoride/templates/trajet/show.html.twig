@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Trajet{% endblock %}
+
+{% block body %}
+    <h1>Trajet</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ trajet.id }}</td>
+            </tr>
+            <tr>
+                <th>Depart</th>
+                <td>{{ trajet.depart }}</td>
+            </tr>
+            <tr>
+                <th>Arrivee</th>
+                <td>{{ trajet.arrivee }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ trajet.date ? trajet.date|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Heure</th>
+                <td>{{ trajet.heure ? trajet.heure|date('H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Places</th>
+                <td>{{ trajet.places }}</td>
+            </tr>
+            <tr>
+                <th>Prix</th>
+                <td>{{ trajet.prix }}</td>
+            </tr>
+        </tbody>
+    </table>
+        <a href="{{ path('app_reservation_new', { trajet_id: trajet.id }) }}" class="btn btn-success mt-3">
+            Réserver ce trajet
+        </a>
+
+        
+
+    <a href="{{ path('app_trajet_index') }}">retour à la liste</a>
+
+    <a href="{{ path('app_trajet_edit', {'id': trajet.id}) }}">modifier</a>
+
+    {{ include('trajet/_delete_form.html.twig') }}
+{% endblock %}
