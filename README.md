@@ -71,5 +71,5 @@ EcoRide est une plateforme web de covoiturage développée avec **Symfony**, per
 
 ##  Installation du projet
 
-git clone https://github.com/ton-projet/ecoride.git
+github ecoride
 
