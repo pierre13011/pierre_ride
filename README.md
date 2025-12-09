@@ -49,7 +49,7 @@ EcoRide est une plateforme web de covoiturage développée avec **Symfony**, per
 ##  Sécurité
 
 - Connexion sécurisée Symfony
-- Brute-force protégé
+- Force-brute protégé
 - Limite de demandes de reset de mot de passe
 - Tokens expirables
 - Validation email obligatoire
@@ -59,21 +59,17 @@ EcoRide est une plateforme web de covoiturage développée avec **Symfony**, per
 
 ## Technologies utilisées
 
-- Symfony 6
+- Symfony 7.4
 - Doctrine ORM
 - Twig
 - MySQL
-- Bootstrap 5
-- Symfony Mailer
+- Bootstrap 
+- Mailer
 - Chart.js (graphiques admin)
 
 ---
 
 ##  Installation du projet
 
-```bash
 git clone https://github.com/ton-projet/ecoride.git
-cd ecoride
-composer install
-npm install
-npm run dev
+
