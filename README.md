@@ -66,6 +66,7 @@ EcoRide est une plateforme web de covoiturage développée avec **Symfony**, per
 - Bootstrap 
 - Mailer
 - Chart.js (graphiques admin)
+- lottieFiles
 
 ---
 
